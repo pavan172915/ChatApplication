@@ -10,7 +10,7 @@ const app = express();
 const server = http.createServer(app) // by using const app = epxress() this internally performs the left side code but since we are using socket.io also as a server we are tweking the express server a little bit
 const io = socketio(server) // to configure socket.io
 // socket io exprects to pass raw http server as argument hence we manually create http server to pass it to it
-const port = process.env.port || 3000
+const port = process.env.PORT || 3000
 const publicDirectoryPath = path.join(__dirname,'../public')
 console.log(publicDirectoryPath)
 console.log(__dirname)
