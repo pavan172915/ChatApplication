@@ -41,7 +41,9 @@ io.on('connection',(socket)=>{
         if(filter.isProfane(msg)){
             return acknowledge('Bad Words not Allowed')
         }
+        if(user.room){
         io.to(user.room).emit('Message',generateMessage(user.username,msg))
+        }
         acknowledge()
     })
     socket.on('sendLocation',(location,acknowledge)=>{
