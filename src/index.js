@@ -27,6 +27,7 @@ io.on('connection',(socket)=>{
 
         socket.join(user.room) // join the room with given name
         socket.emit("Message",generateMessage('Admin','Welcome!'));
+        socket.emit('Message',generateMessage('Important Note','Share location buttion is not available for phones currently!'))
         socket.broadcast.to(user.room).emit('Message',generateMessage(user.username+' has joined the chat room!')) //  broadcast to emit to everybody but this conncetion
         io.to(user.room).emit('roomData',{
             room:user.room,
